@@ -7,12 +7,14 @@ import "errors"
 func Distance(a string, b string) (int, error) {
 	var err = validateLenghts(a, b)
 	if err != nil {
-		return -1, err
+		return 0, err
 	}
 
 	distance := 0
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
+	bRunes := []rune(b)
+
+	for i, v := range a {
+		if v != bRunes[i] {
 			distance++
 		}
 	}
