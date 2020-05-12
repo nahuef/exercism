@@ -4,17 +4,6 @@ import (
 	"strings"
 )
 
-// Score Given a word, compute the Scrabble score for that word.
-func Score(word string) (score int) {
-	word = strings.ToUpper(word)
-
-	for _, r := range word {
-		score += values[r]
-	}
-
-	return
-}
-
 var values = map[rune]int{
 	'A': 1,
 	'B': 3,
@@ -42,4 +31,15 @@ var values = map[rune]int{
 	'X': 8,
 	'Y': 4,
 	'Z': 10,
+}
+
+// Score Given a word, compute the Scrabble score for that word.
+func Score(word string) (score int) {
+	word = strings.ToUpper(word)
+
+	for _, r := range word {
+		score += values[r]
+	}
+
+	return score
 }
